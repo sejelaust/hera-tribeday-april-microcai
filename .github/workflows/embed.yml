@@ -1,0 +1,37 @@
+name: Validate and Embed Data
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'data/input_response.csv'
+
+jobs:
+  validate_and_embed:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          # Add token to checkout for push permission
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+          cache: 'pip'
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+      - name: Validate and embed
+        run: |
+          python src/generate_embeddings.py
+      - name: Configure Git
+        run: |
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
+      - name: Commit and push if changes
+        run: |
+          git add public/data.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update embedded data.json [skip ci]" && git push)
