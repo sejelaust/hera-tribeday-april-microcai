@@ -10,13 +10,8 @@ async function handleInput() {
   }
   if (!data.length) {  // Changed condition to check array length
     try {
-      let base_url = "/"
 
-      if (location.hostname.includes("github.io")) {
-        base_url = "/convai-actions-demo/"
-      }
-
-      const response = await fetch(`${base_url}public/data.json`);
+      const response = await fetch(`/public/data.json`);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
