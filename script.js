@@ -10,8 +10,19 @@ async function handleInput() {
   }
   if (!data.length) {  // Changed condition to check array length
     try {
+      let base_url = "/"
+      if (location.hostname.includes("github.io")) {
+        // Check if it's a user/organization GitHub Pages domain
+        if (location.hostname.includes("pages.github.io")) {
+          // For auto-generated domains like laughing-adventure-w65qw2l.pages.github.io
+          base_url = "/";
+        } else {
+          // For user/organization domains like rasgaard.github.io/convai-actions-demo
+          base_url = "/convai-actions-demo/";
+        }
+      }
 
-      const response = await fetch(`/public/data.json`);
+      const response = await fetch(`${base_url}public/data.json`);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }

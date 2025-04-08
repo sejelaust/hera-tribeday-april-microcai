@@ -23,5 +23,4 @@ This is a simple browser-based chatbot that lets you talk to a virtual patient u
 ## Exercises
 
 1. Add new input/response rows in `data/input_response.csv`. Press `e` when viewing the file on Github to edit it.
-2. Add a script that validates that `data/input_response.csv` has the expected columns and that there are rows to process. This should run before `src/generate_embeddings.py` in `.github/workflows/embed.yml`.
-3. Add a script validates that every input in `data/input_responses.csv` has been processed in `public/data.json`. This should run after `src/generate_embeddings.py` in `.github/workflows/embed.yml`.
+2. Share your repo with a colleague and have them make a pull request (PR) to add some input/output rows.
