@@ -21,7 +21,7 @@ async function handleInput() {
           base_url = "/";
         } else {
           // For user/organization domains like rasgaard.github.io/convai-actions-demo
-          base_url = "/convai-actions-demo/";
+          base_url = "/hera-tribeday-april-microcai/";
         }
       }
 
