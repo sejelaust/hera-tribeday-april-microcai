@@ -100,3 +100,79 @@ h1 {
 #send:hover {
   background-color: #0073e6;
 }
+
+/* Styling for the Clear Chat button */
+#clear {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 20px;
+  background-color: #e4e6eb;
+  color: #1a1a1a;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+#clear:hover {
+  background-color: #d8dadf;
+}
+
+/* Typing indicator styles */
+.typing-indicator .message-content {
+  padding-top: 14px;
+  padding-bottom: 10px;
+}
+
+.typing-indicator .message-content span {
+  height: 8px;
+  width: 8px;
+  float: left;
+  margin: 0 1px;
+  background-color: #9E9EA1;
+  display: block;
+  border-radius: 50%;
+  opacity: 0.4;
+}
+
+.typing-indicator .message-content span:nth-of-type(1) {
+  animation: typing 1s infinite 0.0s;
+}
+
+.typing-indicator .message-content span:nth-of-type(2) {
+  animation: typing 1s infinite 0.25s;
+}
+
+.typing-indicator .message-content span:nth-of-type(3) {
+  animation: typing 1s infinite 0.5s;
+}
+
+@keyframes typing {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Add responsive design for smaller screens */
+@media (max-width: 600px) {
+  .chat-box {
+    height: 50vh;
+  }
+  
+  .input-container {
+    flex-direction: column;
+  }
+  
+  #input, #send, #clear {
+    width: 100%;
+  }
+  
+  .message-content {
+    max-width: 85%;
+  }
+}
