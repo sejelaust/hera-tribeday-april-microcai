@@ -20,7 +20,6 @@ async function handleInput() {
           // For auto-generated domains like laughing-adventure-w65qw2l.pages.github.io
           base_url = "/";
         } else {
-          // For user/organization domains like rasgaard.github.io/convai-actions-demo
           base_url = "/hera-tribeday-april-microcai/";
         }
       }
