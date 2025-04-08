@@ -1,0 +1,14 @@
+name: Ruff
+
+on: 
+    workflow_dispatch:
+jobs:
+  check_ruff:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Ruff Check
+      # You may pin to the exact commit or the version.
+      # uses: jpetrucciani/ruff-check@95ff5ea372c5099efb7a38151f8aef8fee435c47
+      uses: jpetrucciani/ruff-check@0.1.0
+
+          
